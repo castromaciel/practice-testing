@@ -86,4 +86,32 @@ stateDiagram
   result --> [*]
 ```
 
-> El resultado tiene que ser igual a un resultado esperado
+> Para que nuestro test sea exitoso, el resultado tiene que ser igual a un resultado esperado.
+
+#### Estructura recomendada para hacer unit testing.
+
+```ts
+const suma = (var1: number, var2: number):number => var1 + var2;
+```
+
+```ts
+it('Should add two variables', () => {
+  // Mocks or entries
+  const var1Mock = 3
+  const var2Mock = 7
+
+  const expectedResult = 10
+  // ----------------------
+
+  const result = suma(var1Mock, var2Mock)
+
+  expect(result).toEqual(expectedResult)
+})
+```
+
+#### Pasos a tener en cuenta para escribir testing.
+
+1. Identificar lógica de negocio. (Requerimentos del componente).
+2. Identificar que resultado queremos que tenga o efectos de ejecutar nuestra lógica.
+3. Crear los mocks de datos de entrada y de la logica externa.
+4. Identificar casos extremos. (Si o si deben probarse)
