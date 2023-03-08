@@ -1,22 +1,13 @@
 <h1 align="center">
-Template: Vite + React + TypeScript
+Testing Class with Jest
 </h1>
 
 <div align="center">
 
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white) ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
+
 
 </div>
-
-## Usage
-
-### Use Template button
-Click the `Use this template` button above the file list, then use the Owner drop-down menu, and select the account you want to own the repository. Creating a repository from a template has the following advantages:
-
-A repository created from a template starts with a single commit.
-Commits to a repository created from a template do appear in your contribution graph.
-Creating a repository from a template starts a new project quickly.
-
 
 ## Development
 
@@ -45,12 +36,13 @@ npm install
 
 In this project, you can run the following scripts:
 
-| Script        | Description                                         |
-| ------------- | --------------------------------------------------- |
-| yarn build    | Builds the app for production to the `dist` folder. |
-| yarn dev      | Runs the app in the development mode.               |
-| yarn preview  | Start a local web server that serves the built solution from ./dist for previewing |
-| yarn test     | Runs tests with jest.                               |
+| Script            | Description                                         |
+| ----------------- | --------------------------------------------------- |
+| yarn build        | Builds the app for production to the `dist` folder. |
+| yarn dev          | Runs the app in the development mode.               |
+| yarn preview      | Start a local web server that serves the built solution from ./dist for previewing |
+| yarn test         | Runs tests with jest.                               |
+| yarn test:watch   | Runs tests with jest in observer mode.              |
 
 ## Base Dependencies
 
@@ -61,15 +53,17 @@ In this project, you can run the following scripts:
 ## Folder Structure
 
 ```
-template-vite-react-ts
+practice-testing
+├── .github/workflows
 ├── node_modules
+├── docs
 ├── public
 │   └── vite.svg
 └── src
     ├── __tests__
-        ├── App.test.tsx
     ├── assets
         ├── react.svg
+    ├── pages
     ├── App.scss
     ├── App.tsx
     ├── index.scss
