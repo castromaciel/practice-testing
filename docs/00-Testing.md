@@ -115,3 +115,71 @@ it('Should add two variables', () => {
 2. Identificar que resultado queremos que tenga o efectos de ejecutar nuestra lógica.
 3. Crear los mocks de datos de entrada y de la logica externa.
 4. Identificar casos extremos. (Si o si deben probarse)
+
+### Happy path (Camino feliz) 😎
+
+Siempre debe ocurrir. Es también lo que se llama acceptance critera / criterios de aceptación.
+
+### Sad path (Camino triste) 🥲
+
+Prioritario. Aqui va todo lo que no cumple con los criterios de aceptación como también los casos extremos.
+
+### Recomendaciones:
+
+Que hago cuando ya tengo un proyecto finalizado, pero no tenemos testing???
+
+1. Aplicar testing siempre en todo lo nuevo. (Sin excepción).
+2. Tenemos codigo muy acoplado = No se puede dividir sin hacer refactor.
+    * Identificar funcionalidades prioritarias
+    * _**Tratar**_ de hacer mocks metodos excluyentes
+    * Definir nuevamente los _**Happy path**_ 
+    * Definir nuevamente los _**Sad path**_ -> Si o si los casos extremos.
+
+### Test coverage (Covertura de codigo) 🧪
+
+Hay muchas formas de verlos. Se usan distintas variantes/conceptos.
+Son los diferentes caminos que se estan testeando.
+
+Covertura que va a estar definida por **Lineas de código**
+
+Por ejemplo un Login con 20 lineas de codigo, y nosotros tenemos testeadas 18 lineas de codigo, entonces el coverage es de un 90%.
+
+El porcentaje que se tiene que alcanzar es aproximadamente un 80% Para codigos prioritarios !!! 
+
+Ejemplo:
+
+```ts
+const isHigher = (var1: number, var2: number) => {
+  if (var1 > var2) {
+    console.log('es mayor')
+  } else {
+    console.log('es menor')
+  }
+}
+```
+
+
+// Sad Path
+```ts
+(2, 3) => {
+  if (2 > 3) ✅
+  ...
+  else { ✅
+    console.log('es menor') ✅
+  }
+}
+```
+
+Supongamos que este test nos da un 60% del coverage
+
+// Happy Path
+```ts
+(3, 2) => {
+  if (3 > 2) ✅
+    console.log('es mayor')
+  ...
+}
+```
+Supongamos que este test nos da un 40% del coverage
+
+Sumando ambas pruebas, hacemos un 100% del coverage.
