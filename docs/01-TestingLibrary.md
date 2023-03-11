@@ -123,4 +123,46 @@ Para que el testing se realice correctamente
 
 Importar el metodo **screen** de la librería.
 
+Screen es el metodo para poder interactuar y consultar con el DOM, es el DOM simulado que nos brinda testing library.
+
 ## Tipos de queries
+
+Hay fundamentalmente 3 tipos de query
+
+  - **getBy**: Obtiene el elemento que cumpla con la condicion de la query y devuelve un error en dos casos
+    - Si no encuentra ningun elemento
+    - Si encuentra mas de uno
+
+  - **queryBy**: Es similiral al getBy con la diferencia de que no da un error si no encuentra el elemento. Es generalmente utilizado para opcionales.
+
+  - **findBy**: Espera un determinado tiempo a que se cumpla la condición por medio de una promesa, si no se cumple esta se rechaza.
+
+> Para buscar más de un elemento, agregar la palabra "_**all**_" al tipo de query.
+
+Ej: **getAllby**
+
+### Principales queries.
+
+  - **ByRole**: especial para encontrar elementos por el rol que cumplen. Los roles asigandos por el browser (button, tab).
+
+  ```ts
+  screen.getByRole('button', { name: 'Mi texto' })
+  ```
+
+  - **ByLabelText**: elemento que contenga el label que indicamos:
+  ```ts
+  screen.getByLabelText('Mi label')
+  ```
+
+  - **ByText**: elemento con el texto indicado
+  ```ts
+  screen.getByText('Mi texto')
+  ```
+
+  - **ByTestId**: podemos introducir el atributo _data-testid_ para identificar los elementos (este se elimina sol al pasar a producción)
+  ```tsx
+  <div data-testid='mi-elemento'>Elemento</div>
+
+  screen.getByTestId('mi-elemento')
+
+  ```
