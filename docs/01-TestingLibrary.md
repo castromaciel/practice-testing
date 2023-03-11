@@ -122,3 +122,5 @@ Para que el testing se realice correctamente
 #### Como accedemos al snapshot? 
 
 Importar el metodo **screen** de la librería.
+
+## Tipos de queries
