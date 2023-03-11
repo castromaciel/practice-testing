@@ -159,7 +159,7 @@ const isHigher = (var1: number, var2: number) => {
 ```
 
 
-// Sad Path
+// **Sad Path**
 ```ts
 (2, 3) => {
   if (2 > 3) ✅
@@ -172,7 +172,7 @@ const isHigher = (var1: number, var2: number) => {
 
 Supongamos que este test nos da un 60% del coverage
 
-// Happy Path
+// **Happy Path**
 ```ts
 (3, 2) => {
   if (3 > 2) ✅

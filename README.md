@@ -13,7 +13,7 @@ Testing Class with Jest
 
 To get a local copy, clone it using:
 ```
-git clone https://github.com/castromaciel/template-vite-react-ts.git
+git clone https://github.com/castromaciel/practice-testing.git
 ```
 
 ### Make it your own
@@ -89,11 +89,3 @@ practice-testing
 ## Styleguide
 
 For coding styling, I decided to use [eslint](https://eslint.org/) and the [eslint-airbnb configuration](https://github.com/airbnb/javascript#readme), with some personal modifications.
-
-## Credits
-
-Vite Template React with TypeScript is built and maintained by [Castro Maciel](https://github.com/castromaciel)
-
-## License
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
