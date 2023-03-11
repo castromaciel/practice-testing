@@ -117,7 +117,7 @@ Para que el testing se realice correctamente
 
 ### Snapshot del DOM
 
-![Snapshot del DOM](01-SnapshotDom.png)
+![Snapshot del DOM](./assets/01-SnapshotDom.png)
 
 #### Como accedemos al snapshot? 
 
@@ -145,24 +145,88 @@ Ej: **getAllby**
 
   - **ByRole**: especial para encontrar elementos por el rol que cumplen. Los roles asigandos por el browser (button, tab).
 
-  ```ts
-  screen.getByRole('button', { name: 'Mi texto' })
-  ```
+    ```ts
+    screen.getByRole('button', { name: 'Mi texto' })
+    ```
 
   - **ByLabelText**: elemento que contenga el label que indicamos:
-  ```ts
-  screen.getByLabelText('Mi label')
-  ```
+    ```ts
+    screen.getByLabelText('Mi label')
+    ```
 
   - **ByText**: elemento con el texto indicado
-  ```ts
-  screen.getByText('Mi texto')
-  ```
+    ```ts
+    screen.getByText('Mi texto')
+    ```
 
   - **ByTestId**: podemos introducir el atributo _data-testid_ para identificar los elementos (este se elimina sol al pasar a producción)
-  ```tsx
-  <div data-testid='mi-elemento'>Elemento</div>
+    ```tsx
+    <div data-testid='mi-elemento'>Elemento</div>
 
-  screen.getByTestId('mi-elemento')
+    screen.getByTestId('mi-elemento')
+    ```
 
-  ```
+## Sincrono
+
+Consultar en el snapshot si el elemento existe en este instante.
+
+```ts
+expect(screen.getByText('Existo, luego pienso')).toBeInTheDocument()
+```
+
+Esto es sencillo siempre y cuando no tengamos renders que dependan de ciertas condiciones.
+
+## Asincrono
+
+Vamos a esperar a que suceda cierta interaccion del usuario para que aparezca el elemento en pantalla.
+
+1. Importar método **waitFor**, este espera por todo lo que pongamos en su interior.
+
+    waitFor
+    ```ts
+    await waitFor(() =>{
+      expect(screen.getByText('Pienso, luego existo')).toBeInTheDocument()
+    })
+    ```
+    ```ts
+    it("muestra en pantalla 'mi texto'", async() => {
+
+
+      await waitFor(() =>{
+        expect(
+          screen.getByText('mi texto')).toBeInTheDocument()
+      })
+    })
+    ```
+    > Si no aparee luego de un tiempo, se considera un **test fallido**
+
+2. Uso de **findBy**, esperará por la condición y si no lo hace, dará un error.
+    ```ts
+    await screen.findByText('mi texto')
+    ```
+    ```ts
+    expect(await screen.findByText('Pienso, luego existo')).toBeInTheDocument()
+    ```
+
+## Ejemplos de uso
+
+```tsx
+<h3>Esto es un test</h3>
+
+screen.getByText('Esto es un test')
+```
+
+```tsx
+<input type="text" data-testid="input-test" />
+
+screen.getByTestId('input-test')
+```
+
+```tsx
+(... texto luego de una carga ...)
+<p>tu valor es: { value }</p>
+
+await waitFor(() => {
+  expect(screen.getByText("tu valor es: valueFromApi")).toBeInTheDocument()
+})
+```
