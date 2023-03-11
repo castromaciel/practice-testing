@@ -91,3 +91,34 @@ describe('Login', () => {
   })
 })
 ```
+
+## Mindset Testing library
+
+```mermaid
+stateDiagram
+  testing: Testing library
+  do: Crea HTML
+  add: Agerga elemento a probar
+  direction LR
+    testing --> do
+    do --> add
+```
+
+### Importante !!
+
+Para que el testing se realice correctamente
+
+- Atomicidad
+- Cada componente debe ocuparse de una única lógica
+- Componentes reutilizables
+- Componentes que no requieran de otros
+
+> Esto nos facilitará el testing
+
+### Snapshot del DOM
+
+![Snapshot del DOM](01-SnapshotDom.png)
+
+#### Como accedemos al snapshot? 
+
+Importar el metodo **screen** de la librería.
